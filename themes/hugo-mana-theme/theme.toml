@@ -1,0 +1,9 @@
+name = "Hugo Mana Theme"
+license = "MIT"
+licenselink = "https://github.com/Livour/hugo-mana-theme/blob/main/LICENSE"
+description = "Futuristic dark theme with clean aesthetics"
+homepage = "https://themes.gohugo.io/themes/hugo-mana-theme/"
+min_version = "0.110.0"
+[author]
+  name = "Livour"
+  homepage = "https://github.com/Livour"

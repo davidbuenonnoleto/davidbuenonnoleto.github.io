@@ -1,0 +1,55 @@
+{{ define "main" }}
+<section>
+  <p class="section-title">// {{ .Section | default "pages" }}</p>
+  <h1 class="section-heading">{{ .Title }}</h1>
+
+  {{ if eq .Section "projects" }}
+  <div class="cards-grid">
+    {{ range .Pages }}
+    <a class="card" href="{{ .Permalink }}">
+      <h3>{{ .Title }}</h3>
+      <p>{{ .Summary | truncate 120 }}</p>
+      {{ if .Params.tags }}
+      <div class="card-tags">
+        {{ range first 4 .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+    </a>
+    {{ end }}
+  </div>
+  {{ else }}
+  <div class="post-list">
+    {{ range .Paginator.Pages }}
+    <a class="post-item" href="{{ .Permalink }}">
+      <div class="post-meta">
+        <span>{{ .Date.Format "Jan 02, 2006" }}</span>
+        <span>·</span>
+        <span>{{ .ReadingTime }} min read</span>
+      </div>
+      <h2>{{ .Title }}</h2>
+      <p>{{ .Summary | truncate 140 }}</p>
+      {{ if .Params.tags }}
+      <div class="card-tags" style="margin-top:0.75rem">
+        {{ range first 3 .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+    </a>
+    {{ end }}
+  </div>
+
+  {{ if gt .Paginator.TotalPages 1 }}
+  <div class="pagination">
+    {{ if .Paginator.HasPrev }}
+    <a class="page-link" href="{{ .Paginator.Prev.URL }}">← Prev</a>
+    {{ end }}
+    {{ range .Paginator.Pagers }}
+    <a class="page-link{{ if eq . $.Paginator }} active{{ end }}" href="{{ .URL }}">{{ .PageNumber }}</a>
+    {{ end }}
+    {{ if .Paginator.HasNext }}
+    <a class="page-link" href="{{ .Paginator.Next.URL }}">Next →</a>
+    {{ end }}
+  </div>
+  {{ end }}
+  {{ end }}
+</section>
+{{ end }}

@@ -1,0 +1,60 @@
+{{ define "main" }}
+
+<!-- HERO -->
+<section class="hero fade-up">
+  <span class="hero-tag">// hello world</span>
+  <h1>Hi, I'm <span class="accent">{{ .Site.Params.author }}</span></h1>
+  <p>{{ .Site.Params.description }}</p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="{{ "/projects/" | relURL }}">View Projects</a>
+    <a class="btn btn-ghost" href="{{ "/about/" | relURL }}">About Me</a>
+  </div>
+</section>
+
+<!-- RECENT POSTS -->
+<section class="section">
+  <p class="section-title">// latest</p>
+  <h2 class="section-heading">Recent Posts</h2>
+  <div class="post-list">
+    {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
+    <a class="post-item" href="{{ .Permalink }}">
+      <div class="post-meta">
+        <span>{{ .Date.Format "Jan 02, 2006" }}</span>
+        <span>·</span>
+        <span>{{ .ReadingTime }} min read</span>
+      </div>
+      <h2>{{ .Title }}</h2>
+      <p>{{ .Summary | truncate 120 }}</p>
+      {{ if .Params.tags }}
+      <div class="card-tags" style="margin-top:0.75rem">
+        {{ range first 3 .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+    </a>
+    {{ end }}
+  </div>
+  <div style="margin-top:1.5rem">
+    <a class="btn btn-ghost" href="{{ "/posts/" | relURL }}">All Posts →</a>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section">
+  <p class="section-title">// work</p>
+  <h2 class="section-heading">Featured Projects</h2>
+  <div class="cards-grid">
+    {{ range first 3 (where .Site.RegularPages "Section" "projects") }}
+    <a class="card" href="{{ .Permalink }}">
+      <h3>{{ .Title }}</h3>
+      <p>{{ .Summary | truncate 100 }}</p>
+      {{ if .Params.tags }}
+      <div class="card-tags">
+        {{ range first 3 .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+    </a>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

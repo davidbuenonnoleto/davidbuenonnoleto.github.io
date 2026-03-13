@@ -1,0 +1,35 @@
+baseURL = "https://davidbuenonnoleto.github.io/"
+languageCode = "en-us"
+title = "David Bueno"
+theme = "hugo-mana-theme"
+paginate = 5
+
+[params]
+  author = "David Bueno"
+  description = "Software Engineer · Builder of things"
+  tagline = "Software Engineer"
+  github = "https://github.com/davidbuenonnoleto"
+  email = "david@example.com"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 3
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 4
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

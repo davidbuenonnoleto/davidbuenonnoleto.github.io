@@ -1,0 +1,10 @@
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="{{ "/" | relURL }}"><span>&#x276F;</span> {{ .Site.Params.author | default .Site.Title }}</a>
+    <ul class="nav-links">
+      {{ range .Site.Menus.main }}
+      <li><a href="{{ .URL | relURL }}"{{ if eq $.RelPermalink .URL }} class="active"{{ end }}>{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
+</nav>
