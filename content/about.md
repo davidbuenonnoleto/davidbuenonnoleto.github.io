@@ -8,7 +8,7 @@ draft: false
 
 I'm a Software Engineer based in California, passionate about building scalable systems, clean APIs, and great developer experiences. I love turning complex problems into elegant, maintainable solutions.
 
-When I'm not writing code, I'm probably reading about distributed systems, experimenting with new tools, or contributing to open source.
+When I'm not writing code, I'm probably reading about distributed systems, experimenting with new tools, and learning more about AI.
 
 ## What I Do
 
