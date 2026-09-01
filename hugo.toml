@@ -9,7 +9,6 @@ paginate = 5
   description = "Software Engineer · Builder of things"
   tagline = "Software Engineer"
   github = "https://github.com/davidbuenonnoleto"
-  email = "david@example.com"
 
 [menu]
   [[menu.main]]
