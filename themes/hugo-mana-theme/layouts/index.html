@@ -6,7 +6,10 @@
   <h1>Hi, I'm <span class="accent">{{ .Site.Params.author }}</span></h1>
   <p>{{ .Site.Params.description }}</p>
   <div class="hero-cta">
+    {{ if (where .Site.RegularPages "Section" "projects") }}
     <a class="btn btn-primary" href="{{ "/projects/" | relURL }}">View Projects</a>
+    {{ end }}
+    <a class="btn btn-primary" href="{{ "/posts/" | relURL }}">Read Posts</a>
     <a class="btn btn-ghost" href="{{ "/about/" | relURL }}">About Me</a>
   </div>
 </section>
@@ -39,6 +42,7 @@
 </section>
 
 <!-- PROJECTS -->
+{{ if (where .Site.RegularPages "Section" "projects") }}
 <section class="section">
   <p class="section-title">// work</p>
   <h2 class="section-heading">Featured Projects</h2>
@@ -56,5 +60,6 @@
     {{ end }}
   </div>
 </section>
+{{ end }}
 
 {{ end }}
