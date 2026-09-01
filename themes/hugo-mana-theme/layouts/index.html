@@ -27,7 +27,7 @@
         <span>{{ .ReadingTime }} min read</span>
       </div>
       <h2>{{ .Title }}</h2>
-      <p>{{ .Summary | truncate 120 }}</p>
+      <p>{{ .Summary | plainify | truncate 120 }}</p>
       {{ if .Params.tags }}
       <div class="card-tags" style="margin-top:0.75rem">
         {{ range first 3 .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
@@ -50,7 +50,7 @@
     {{ range first 3 (where .Site.RegularPages "Section" "projects") }}
     <a class="card" href="{{ .Permalink }}">
       <h3>{{ .Title }}</h3>
-      <p>{{ .Summary | truncate 100 }}</p>
+      <p>{{ .Summary | plainify | truncate 100 }}</p>
       {{ if .Params.tags }}
       <div class="card-tags">
         {{ range first 3 .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
