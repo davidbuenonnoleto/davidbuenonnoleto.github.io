@@ -6,7 +6,7 @@ paginate = 5
 
 [params]
   author = "David Bueno"
-  description = "Software Engineer · Builder of things"
+  description = "Go & Python engineer — IoT devices, firmware, and the cloud behind them"
   tagline = "Software Engineer"
   github = "https://github.com/davidbuenonnoleto"
 
